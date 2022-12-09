@@ -94,3 +94,11 @@ repositories:
     type: git
     url: https://github.com/autowarefoundation/autoware_individual_params.git
     version: f1eea54cdf1a439d5e83d6203751b76d723821a1
+  v2x/autowarev2x:
+    type: git
+    url: https://github.com/tlab-wide/AutowareV2X.git
+    version: main
+  v2x/vanetza:
+    type: git
+    url: https://github.com/yuasabe/vanetza.git
+    version: master
