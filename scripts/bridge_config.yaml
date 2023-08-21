@@ -1,0 +1,755 @@
+# Name of the domain bridge, used for node naming and logging
+name: my_bridge
+from_domain: 10
+to_domain: 1
+topics:
+  # Clock
+  clock:
+    type: rosgraph_msgs/msg/Clock
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 2
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 3
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 4
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 5
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 6
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 7
+  clock:
+    type: rosgraph_msgs/msg/Clock
+    to_domain: 8
+
+  # For Init Script
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 2
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 3
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 4
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 5
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 6
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 7
+  /planning/scenario_planning/max_velocity_default:
+    type: tier4_planning_msgs/msg/VelocityLimit
+    to_domain: 8
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 2
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 3
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 4
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 5
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 6
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 7
+  /planning/mission_planning/goal:
+    type: geometry_msgs/msg/PoseStamped
+    to_domain: 8
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 2
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 3
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 4
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 5
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 6
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 7
+  /autoware/engage:
+    type: autoware_auto_vehicle_msgs/msg/Engage
+    to_domain: 8
+
+
+  # V2X Related Topics
+  awv2x/v2x_tuple:
+    type: autowarev2x_msgs/msg/V2XTuple
+    reversed: true
+  awv2x/v2x_tuple:
+    type: autowarev2x_msgs/msg/V2XTuple
+    to_domain: 2
+    reversed: true
+
+  # Car1
+  car1/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+  car1/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+  car1/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+  car1/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+  car1/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+  car1/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+  car1/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+  car1/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+  car1/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+  car1/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+  car1/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+  car1/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+  car1/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+  car1/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    reversed: True
+    remap: car1/control/command/turn_indicators_cmd
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    reversed: True
+    remap: car1/control/command/hazard_lights_cmd
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    reversed: True
+    remap: car1/control/command/control_cmd
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    reversed: True
+    remap: car1/control/command/gear_cmd
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    reversed: True
+    remap: car1/control/command/emergency_cmd
+
+  # Car2
+  car2/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 2
+  car2/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 2
+  car2/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 2
+  car2/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 2
+  car2/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 2
+  car2/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 2
+  car2/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 2
+  car2/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 2
+  car2/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 2
+  car2/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 2
+  car2/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 2
+  car2/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 2
+  car2/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 2
+  car2/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 2
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car2/control/command/turn_indicators_cmd
+    from_domain: 2
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car2/control/command/hazard_lights_cmd
+    from_domain: 2
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car2/control/command/control_cmd
+    from_domain: 2
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car2/control/command/gear_cmd
+    from_domain: 2
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car2/control/command/emergency_cmd
+    from_domain: 2
+    to_domain: 10
+
+  # car3
+  car3/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 3
+  car3/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 3
+  car3/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 3
+  car3/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 3
+  car3/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 3
+  car3/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 3
+  car3/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 3
+  car3/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 3
+  car3/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 3
+  car3/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 3
+  car3/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 3
+  car3/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 3
+  car3/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 3
+  car3/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 3
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car3/control/command/turn_indicators_cmd
+    from_domain: 3
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car3/control/command/hazard_lights_cmd
+    from_domain: 3
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car3/control/command/control_cmd
+    from_domain: 3
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car3/control/command/gear_cmd
+    from_domain: 3
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car3/control/command/emergency_cmd
+    from_domain: 3
+    to_domain: 10
+
+  # car4
+  car4/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 4
+  car4/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 4
+  car4/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 4
+  car4/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 4
+  car4/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 4
+  car4/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 4
+  car4/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 4
+  car4/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 4
+  car4/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 4
+  car4/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 4
+  car4/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 4
+  car4/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 4
+  car4/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 4
+  car4/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 4
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car4/control/command/turn_indicators_cmd
+    from_domain: 4
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car4/control/command/hazard_lights_cmd
+    from_domain: 4
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car4/control/command/control_cmd
+    from_domain: 4
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car4/control/command/gear_cmd
+    from_domain: 4
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car4/control/command/emergency_cmd
+    from_domain: 4
+    to_domain: 10
+
+  # car5
+  car5/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 5
+  car5/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 5
+  car5/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 5
+  car5/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 5
+  car5/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 5
+  car5/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 5
+  car5/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 5
+  car5/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 5
+  car5/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 5
+  car5/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 5
+  car5/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 5
+  car5/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 5
+  car5/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 5
+  car5/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 5
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car5/control/command/turn_indicators_cmd
+    from_domain: 5
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car5/control/command/hazard_lights_cmd
+    from_domain: 5
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car5/control/command/control_cmd
+    from_domain: 5
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car5/control/command/gear_cmd
+    from_domain: 5
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car5/control/command/emergency_cmd
+    from_domain: 5
+    to_domain: 10
+
+  # car6
+  car6/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 6
+  car6/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 6
+  car6/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 6
+  car6/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 6
+  car6/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 6
+  car6/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 6
+  car6/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 6
+  car6/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 6
+  car6/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 6
+  car6/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 6
+  car6/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 6
+  car6/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 6
+  car6/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 6
+  car6/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 6
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car6/control/command/turn_indicators_cmd
+    from_domain: 6
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car6/control/command/hazard_lights_cmd
+    from_domain: 6
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car6/control/command/control_cmd
+    from_domain: 6
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car6/control/command/gear_cmd
+    from_domain: 6
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car6/control/command/emergency_cmd
+    from_domain: 6
+    to_domain: 10
+
+  # car7
+  car7/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 7
+  car7/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 7
+  car7/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 7
+  car7/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 7
+  car7/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 7
+  car7/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 7
+  car7/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 7
+  car7/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 7
+  car7/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 7
+  car7/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 7
+  car7/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 7
+  car7/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 7
+  car7/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 7
+  car7/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 7
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car7/control/command/turn_indicators_cmd
+    from_domain: 7
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car7/control/command/hazard_lights_cmd
+    from_domain: 7
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car7/control/command/control_cmd
+    from_domain: 7
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car7/control/command/gear_cmd
+    from_domain: 7
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car7/control/command/emergency_cmd
+    from_domain: 7
+    to_domain: 10
+
+  # car8
+  car8/sensing/camera/traffic_light/camera_info:
+    type: sensor_msgs/msg/CameraInfo
+    remap: sensing/camera/traffic_light/camera_info
+    to_domain: 8
+  car8/sensing/camera/traffic_light/image_raw:
+    type: sensor_msgs/msg/Image
+    remap: sensing/camera/traffic_light/image_raw
+    to_domain: 8
+  car8/sensing/gnss/pose:
+    type: geometry_msgs/msg/Pose
+    remap: sensing/gnss/pose
+    to_domain: 8
+  car8/sensing/gnss/pose_with_covariance:
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    remap: sensing/gnss/pose_with_covariance
+    to_domain: 8
+  car8/sensing/imu/tamagawa/imu_raw:
+    type: sensor_msgs/msg/Imu
+    remap: sensing/imu/tamagawa/imu_raw
+    to_domain: 8
+  car8/sensing/lidar/top/pointcloud_raw:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw
+    to_domain: 8
+  car8/sensing/lidar/top/pointcloud_raw_ex:
+    type: sensor_msgs/msg/PointCloud2
+    remap: sensing/lidar/top/pointcloud_raw_ex
+    to_domain: 8
+  car8/vehicle/status/control_mode:
+    type: autoware_auto_vehicle_msgs/msg/ControlModeReport
+    remap: vehicle/status/control_mode
+    to_domain: 8
+  car8/vehicle/status/gear_status:
+    type: autoware_auto_vehicle_msgs/msg/GearReport
+    remap: vehicle/status/gear_status
+    to_domain: 8
+  car8/vehicle/status/steering_status:
+    type: autoware_auto_vehicle_msgs/msg/SteeringReport
+    remap: vehicle/status/steering_status
+    to_domain: 8
+  car8/vehicle/status/turn_indicators_status:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport
+    remap: vehicle/status/turn_indicators_status
+    to_domain: 8
+  car8/vehicle/status/hazard_lights_status:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsReport
+    remap: vehicle/status/hazard_lights_status
+    to_domain: 8
+  car8/vehicle/status/velocity_status:
+    type: autoware_auto_vehicle_msgs/msg/VelocityReport
+    remap: vehicle/status/velocity_status
+    to_domain: 8
+  car8/awsim/ground_truth/vehicle/pose:
+    type: geometry_msgs/msg/PoseStamped
+    remap: awsim/ground_truth/vehicle/pose
+    to_domain: 8
+  control/command/turn_indicators_cmd:
+    type: autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand
+    remap: car8/control/command/turn_indicators_cmd
+    from_domain: 8
+    to_domain: 10
+  control/command/hazard_lights_cmd:
+    type: autoware_auto_vehicle_msgs/msg/HazardLightsCommand
+    remap: car8/control/command/hazard_lights_cmd
+    from_domain: 8
+    to_domain: 10
+  control/command/control_cmd:
+    type: autoware_auto_control_msgs/msg/AckermannControlCommand
+    remap: car8/control/command/control_cmd
+    from_domain: 8
+    to_domain: 10
+  control/command/gear_cmd:
+    type: autoware_auto_vehicle_msgs/msg/GearCommand
+    remap: car8/control/command/gear_cmd
+    from_domain: 8
+    to_domain: 10
+  control/command/emergency_cmd:
+    type: tier4_vehicle_msgs/msg/VehicleEmergencyStamped
+    remap: car8/control/command/emergency_cmd
+    from_domain: 8
+    to_domain: 10
